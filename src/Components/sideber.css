@@ -1,3 +1,7 @@
+.border-left {
+    border-left-width: 1px;
+    border-left-color: rgba(0, 0, 0, 0.329);
+  }
 .hover-border-left:hover {
     border-left-width: 4px;
     border-left-color: black;
