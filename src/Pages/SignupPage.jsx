@@ -1,8 +1,11 @@
-import { useState } from 'react';
+import { useState } from "react";
+
 
 const SignupPage = () => {
+   
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+ 
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">

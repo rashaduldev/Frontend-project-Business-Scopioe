@@ -1,7 +1,7 @@
 const SearchBar = () => {
     return (
-        <div className="flex justify-between bg-white rounded-lg p-10">
-            <div className="p-6 ">
+        <div className="flex flex-col lg:flex-row justify-between bg-white rounded-lg p-10">
+            <div className="lg:p-6 p-0">
             <h1 className="text-xl font-semibold mb-4">
                 I’m Looking for Massage Therapist Near...
             </h1>
@@ -24,7 +24,7 @@ const SearchBar = () => {
                 <button className="px-4 py-2 bg-blue-500 text-white rounded">Go</button>
             </div>
          </div>
-         <div>
+         <div className="mt-5 lg:mt-0">
             <img src="https://i.ibb.co/Ldb1cXb/search.png" alt="" />
          </div>
         </div>

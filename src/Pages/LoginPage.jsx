@@ -1,26 +1,54 @@
+/* eslint-disable react/no-unescaped-entities */
 import { useState } from 'react';
+import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 import { FaFacebookF } from 'react-icons/fa6';
 import { FcGoogle } from 'react-icons/fc';
+import app from '../firebase/firebase.config';
+import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
+
+  const auth = getAuth(app);
+  const googleProvider = new GoogleAuthProvider();
+
+  const handleGoogleSignin = () => {
+    signInWithPopup(auth, googleProvider)
+      .then((res) => {
+        const user = res.user;
+        console.log(user);
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Login Successfully",
+          showConfirmButton: false,
+          timer: 1500
+        });
+        navigate('/');
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="bg-white shadow-md rounded-lg flex overflow-hidden w-full max-w-4xl">
         <div className="w-1/2 p-8">
           <div className="flex justify-start mb-8">
-          <h1 className='text-5xl text-blue-600'>LOGO</h1>
+            <h1 className="text-5xl text-blue-600">LOGO</h1>
           </div>
           <h2 className="text-3xl font-bold mb-6 text-left">Log In To Your Account</h2>
           <p className="text-left mb-6">Welcome Back! Select a method to log in:</p>
           <div className="flex justify-center mb-6">
-            <button className="text-black hover:text-white hover:bg-blue-600 text-xl py-2 px-4 rounded mx-2 flex items-center gap-3 border shadow-xl">
-            <FcGoogle />
+            <button onClick={handleGoogleSignin} className="text-black hover:text-white hover:bg-blue-600 text-xl py-2 px-4 rounded mx-2 flex items-center gap-3 border shadow-xl">
+              <FcGoogle />
               Google
             </button>
-            <button className="text-black hover:text-white hover:bg-blue-600 text-xl py-2 px-4 rounded mx-2 flex items-center gap-3 border shadow-xl">
-            <FaFacebookF />
+            <button className="text-white bg-blue-600 text-xl py-2 px-4 rounded mx-2 flex items-center gap-3 border shadow-xl">
+              <FaFacebookF />
               Facebook
             </button>
           </div>
@@ -47,7 +75,7 @@ const LoginPage = () => {
                 id="password"
                 placeholder="Enter your password"
               />
-              <div 
+              <div
                 className="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5 cursor-pointer"
                 onClick={() => setShowPassword(!showPassword)}
               >
@@ -73,13 +101,13 @@ const LoginPage = () => {
             </button>
           </form>
           <div className="text-center mt-4">
-            Dont Have an Account? <a href="/signup" className="text-blue-500 hover:underline">Create Account</a>
+            Don't Have an Account? <a href="/signup" className="text-blue-500 hover:underline">Create Account</a>
           </div>
         </div>
         <div className="w-1/2 relative hidden lg:block">
           <img src="https://i.ibb.co/y8XFwSs/Rectangle-9593.png" alt="Background" className="absolute inset-0 w-full h-full object-cover" />
           <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
-            <h2 className="text-white text-2xl font-bold text-center bg-[#4950349f] p-10 rounded-lg"><a className="text-blue-600" href="#">Sign In</a> to view all the <br/> massage therapists</h2>
+            <h2 className="text-white text-2xl font-bold text-center bg-[#4950349f] p-10 rounded-lg"><a className="text-blue-600" href="#">Sign In</a> to view all the <br /> massage therapists</h2>
           </div>
         </div>
       </div>

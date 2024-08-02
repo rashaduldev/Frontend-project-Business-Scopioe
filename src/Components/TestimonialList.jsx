@@ -63,16 +63,16 @@ function TestimonialList() {
       <ul className="space-y-4">
         {testimonials.map((testimonial) => (
           <li key={testimonial.id} className="border p-4 rounded">
-            <div className="flex text-left items-center space-x-7">
-              <div className="h-[141px] w-auto flex-shrink-0 overflow-hidden">
+            <div className="flex flex-col lg:flex-row text-left items-center space-x-7">
+              <div className="h-[141px] w-full lg:w-auto lg:flex-shrink-0 lg:overflow-hidden">
                 <img 
                   src={testimonial.img} 
                   alt="" 
-                  className="object-cover h-full w-full" 
+                  className="lg:object-cover h-full w-full" 
                 />     
               </div>
               <div>
-                <div className="text-sm text-gray-500 flex items-center space-x-2">
+                <div className="text-sm text-gray-500 flex items-center space-x-2 mt-10 lg:mt-0">
                   <FaLocationDot />
                   <strong>{testimonial.name}</strong> - {testimonial.location}
                 </div>
