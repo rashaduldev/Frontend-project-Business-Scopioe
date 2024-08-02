@@ -17,9 +17,15 @@ const Mainpart = () => {
                 <TherapistCarousel/>
             </div>
             </div>
-            <div className="my-8 grid grid-cols-1 md:grid-cols-3 gap-4">
-            <TestimonialList />
-            <CitiesList />
+            <div className="my-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                <h2 className="text-lg font-semibold mb-4">Featured Testimonial</h2>
+                    <TestimonialList />
+                </div>
+                <div>
+                <h2 className="text-lg font-semibold mb-4">Popular Cities</h2>
+                    <CitiesList />
+                </div>
             </div>
         </div>
       </div>

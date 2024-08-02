@@ -4,17 +4,6 @@ import './newcard.css';
 import { Link } from 'react-router-dom';
 import { GoChevronLeft, GoChevronRight } from 'react-icons/go';
 
-// const therapists = [
-//   { name: 'Alexander Cort', address: '123 Elm Street, New York', services: 'Mobile & In-Studio', img: 'path_to_image1' },
-//   { name: 'Michael Smith', address: '789 Maple Drive, NY', services: 'Mobile & In-Studio', img: 'path_to_image2' },
-//   { name: 'David Martinez', address: 'Pine Street, San Fran', services: 'Mobile & In-Studio', img: 'path_to_image3' },
-//   { name: 'Jennifer Lee', address: '567 Cedar Lane, Miami', services: 'Mobile & In-Studio', img: 'path_to_image4' },
-//   // Add more therapist data as needed
-//   { name: 'Therapist 5', address: 'Address 5', services: 'Service 5', img: 'path_to_image5' },
-//   { name: 'Therapist 6', address: 'Address 6', services: 'Service 6', img: 'path_to_image6' },
-//   { name: 'Therapist 7', address: 'Address 7', services: 'Service 7', img: 'path_to_image7' },
-//   { name: 'Therapist 8', address: 'Address 8', services: 'Service 8', img: 'path_to_image8' },
-// ];
 const therapists = [
     {
       id: 1,

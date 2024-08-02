@@ -1,6 +1,7 @@
 const SearchBar = () => {
     return (
-        <div className="bg-white shadow-md p-6 rounded-lg">
+        <div className="flex justify-between bg-white rounded-lg p-10">
+            <div className="p-6 ">
             <h1 className="text-xl font-semibold mb-4">
                 I’m Looking for Massage Therapist Near...
             </h1>
@@ -22,7 +23,11 @@ const SearchBar = () => {
                 />
                 <button className="px-4 py-2 bg-blue-500 text-white rounded">Go</button>
             </div>
-    </div>
+         </div>
+         <div>
+            <img src="https://i.ibb.co/Ldb1cXb/search.png" alt="" />
+         </div>
+        </div>
     );
 };
 
