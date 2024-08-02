@@ -1,5 +1,8 @@
+import TherapistCarousel from "./Card/NewCard";
+import CitiesList from "./CitiesList";
 import Header from "./Header";
 import SearchBar from "./SearchBar";
+import TestimonialList from "./TestimonialList";
 
 
 const Mainpart = () => {
@@ -10,11 +13,13 @@ const Mainpart = () => {
             <SearchBar />
             <div className="my-8">
             <h2 className="text-2xl font-semibold mb-4">Featured Therapist</h2>
-            {/* <TherapistList /> */}
+            <div className="bg-white pl-14 pr-20 rounded-lg">
+                <TherapistCarousel/>
+            </div>
             </div>
             <div className="my-8 grid grid-cols-1 md:grid-cols-3 gap-4">
-            {/* <TestimonialList /> */}
-            {/* <CitiesList /> */}
+            <TestimonialList />
+            <CitiesList />
             </div>
         </div>
       </div>
