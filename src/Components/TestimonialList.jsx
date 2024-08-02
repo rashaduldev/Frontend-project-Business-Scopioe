@@ -1,19 +1,61 @@
+/* eslint-disable react/prop-types */
+import { useState } from 'react';
+import { FaLocationDot } from "react-icons/fa6";
+
 const testimonials = [
   {
     id: 1,
-    text: "Healing Bodywork by Cort Cort's healing bodywork massage was amazing! Loved the intuitive touch and deep understanding.",
+    text: "Cort's healing bodywork massage was absolutely transformative. Their intuitive touch and deep understanding of the body's needs led to a deeply relaxing and rejuvenating experience. I felt completely at ease and in safe hands throughout the session. Highly recommend Cort's services to anyone looking for a holistic and transformative bodywork experience.",
     name: "John Doe",
     location: "123 Elm Street, New York",
-    img:"http://assets.com/assets/com/john"
+    img: "https://i.ibb.co/yfRscKj/image1.png"
   },
   {
     id: 2,
-    text: "Great experience, will recommend to others!",
+    text: "Cort's healing bodywork massage was absolutely transformative. Their intuitive touch and deep understanding of the body's needs led to a deeply relaxing and rejuvenating experience. I felt completely at ease and in safe hands throughout the session. Highly recommend Cort's services to anyone looking for a holistic and transformative bodywork experience.",
     name: "Jane Smith",
     location: "456 Pine Street, San Francisco",
-    img:"http://assets.com/assets/com/john"
+    img: "https://i.ibb.co/vzDBb5n/image2.png"
   },
 ];
+
+function ReadMore({ text, maxWords = 25 }) {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const words = text.split(' ');
+  const shouldShowReadMore = words.length > maxWords;
+
+  const toggleReadMore = () => {
+    setIsExpanded(!isExpanded);
+  };
+
+  return (
+    <div>
+      <p className="text-sm mb-2 text-gray-500 inline">
+        {isExpanded ? (
+          text
+        ) : (
+          <>
+            {words.slice(0, maxWords).join(' ')}
+            {shouldShowReadMore && (
+              <>
+                ...
+                <button onClick={toggleReadMore} className="text-blue-500 underline inline">
+                  Read more
+                </button>
+              </>
+            )}
+          </>
+        )}
+        {isExpanded && shouldShowReadMore && (
+          <button onClick={toggleReadMore} className="text-blue-500 underline inline">
+            Read less
+          </button>
+        )}
+      </p>
+    </div>
+  );
+}
 
 function TestimonialList() {
   return (
@@ -22,16 +64,23 @@ function TestimonialList() {
         {testimonials.map((testimonial) => (
           <li key={testimonial.id} className="border p-4 rounded">
             <div className="flex text-left items-center space-x-7">
-                <div>
-                  <img src= {testimonial.img} alt="" className="h-[141px] w-32" />
-                   
+              <div className="h-[141px] w-auto flex-shrink-0 overflow-hidden">
+                <img 
+                  src={testimonial.img} 
+                  alt="" 
+                  className="object-cover h-full w-full" 
+                />     
+              </div>
+              <div>
+                <div className="text-sm text-gray-500 flex items-center space-x-2">
+                  <FaLocationDot />
+                  <strong>{testimonial.name}</strong> - {testimonial.location}
                 </div>
-                <div>
-                  <p className="text-sm mb-2">{testimonial.text}</p>
-                  <p className="text-sm text-gray-500">
-                    <strong>{testimonial.name}</strong> - {testimonial.location}
-                  </p>
+                <div className="flex items-center my-2">
+                  Healing Bodywork <i className="font-bold text-blue-600 ml-2">by Cort</i>
                 </div>
+                <ReadMore text={testimonial.text} maxWords={25} />
+              </div>
             </div>
           </li>
         ))}
