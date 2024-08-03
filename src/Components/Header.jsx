@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { CiMenuFries } from "react-icons/ci";
 import { IoIosNotificationsOutline } from "react-icons/io";
 import Nav from "./Nav";
-import { FaArrowRightToBracket } from "react-icons/fa6";
+import { FaAngleDown, FaArrowRightToBracket } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import Swal from "sweetalert2";
@@ -29,7 +29,7 @@ const Header = () => {
             Swal.fire({
                 position: "center",
                 icon: "success",
-                title: "LogOut Successfully",
+                title: "Logout Successfully",
                 showConfirmButton: false,
                 timer: 1500
               });
@@ -62,45 +62,13 @@ const Header = () => {
                             className="rounded-full h-10 w-10"
                           />
                           <div>
+                            <div className="flex justify-between items-center">
                             <p className="font-bold">{user?.displayName}</p>
+                            <FaAngleDown />
+                            </div>
                             <p>{user?.email}</p>
                           </div>
                         </div>
-
-                        {isOptionsVisible && (
-                          <div  className="fixed lg:top-20 md:right-10 lg:right-64 z-50 w-56 bg-white shadow-md rounded-md mt-2">
-                            <Link to={"/dashboard/profile"}>
-                            <button
-                            onClick={toggleOptions}
-                              className="w-full px-4 py-2 text-left hover:bg-gray-100"
-                            >
-                              Profile
-                            </button>
-                            </Link>
-                            <button
-                            onClick={toggleOptions}
-                              className="w-full px-4 py-2 text-left hover:bg-gray-100"
-                            >
-                              Updrate To Pro
-                            </button>
-                            <button
-                              className="w-full px-4 py-2 text-left hover:bg-gray-100"
-                              onClick={toggleOptions}
-                            >
-                              Account settings
-                            </button>
-                            <Link to={"/login"}>
-                            <button
-                              onClick={handleLogout}
-                              className="w-full px-4 py-2 text-left hover:bg-gray-100"
-                              
-                            >
-                              Logout
-                            </button>
-                            </Link>
-                          
-                          </div>
-                        )}
       
                        </div>
                    </div>
@@ -132,35 +100,29 @@ const Header = () => {
                     {
                         user?.email ?<>
                         <div>
-                        <Link to={'/login'}>
-                        <div onClick={handleLogout} className="flex items-center space-x-2 text-red-600 border-left pl-5">
+                        <div className="flex items-center space-x-2 text-red-600 border-left pl-5">
                       <p className="text-xl">Log out</p>
-                       <div className="border p-2 rounded-full bg-red-100 cursor-pointer">
+                      <Link to={'/login'}>
+                       <div  onClick={handleLogout} className="border p-2 rounded-full bg-red-100 cursor-pointer">
                         <FaArrowRightToBracket />   
                        </div>
+                       </Link>
                       </div>
-                      </Link>
                         </div>
-                        </> : 
-                        <>
+                        </> : <>
                         <div>
-                        <Link to={'/login'}>
-                        <div className="flex items-center space-x-2 text-red-600 border-left pl-5">
-                      <p className="text-xl">Log in</p>
-                       <div className="border p-2 rounded-full bg-red-100 cursor-pointer">
-                       
-                        <FaArrowRightToBracket />
-                        
-                       </div>
-                    
-                   </div>
-                   </Link>
+                            <div className="flex items-center space-x-2 text-blue-700 border-left pl-5">
+                            <p className="text-xl">Log in</p>
+                            <Link to={'/login'}>
+                            <div className="border p-2 rounded-full bg-blue-100 cursor-pointer">
+                            <FaArrowRightToBracket />
+                          </div>
+                        </Link>
+                        </div>
                         </div>
                         </>
                     }
-                </div>
-              
-                
+                </div>  
             </div>
              </div>
              <div className="lg:hidden flex">
@@ -173,7 +135,37 @@ const Header = () => {
                     </div>
                     </div>
                     {isOptionsVisible && (
-                    <div className="absolute right-2 top-14 z-50 w-56 bg-white shadow-md rounded-md">
+                    <div className="absolute right-2 top-14 z-50 w-64 bg-white shadow-md rounded-md">
+                        <div className="h-60 text-end items-end justify-end flex pr-5 pb-5 bg-[#156BCA] rounded-t-md">
+                        {
+                          user?.email?
+                          <div>
+                          <div className="flex justify-end mb-2">
+                          <img
+                            src={user?.photoURL}
+                            alt="Profile Image"
+                            className="rounded-full h-20 w-20 bg-white"
+                          />
+                          </div>
+                          <div>
+                            <p className="font-bold text-xl text-white my-1">{user?.displayName}</p>
+                            <p className="text-sm text-[#1A2634]">{user?.email}</p>
+                          </div>
+                      </div>:
+                            <div>
+                            <div >
+                            <div className="flex justify-end mb-2">
+                            <img
+                                      src="https://via.placeholder.com/40"
+                                      alt="User"
+                                      className="rounded-full h-20 w-20 bg-white"
+                                  />
+                            </div>
+                                  <p>Please <a className="underline italic" href="/login">Login</a> First</p>
+                              </div>
+                        </div>
+                        }
+                        </div>
                         <Nav />
                     </div>
                     )}
