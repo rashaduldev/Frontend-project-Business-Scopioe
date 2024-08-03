@@ -4,58 +4,6 @@ import './newcard.css';
 import { Link } from 'react-router-dom';
 import { GoChevronLeft, GoChevronRight } from 'react-icons/go';
 
-const therapists = [
-    {
-      id: 1,
-      name: "Alexander Cort",
-      address: "123 Elm Street, New York",
-      services: "Mobile & In-Studio",
-      img: "https://i.ibb.co/dLpS4s4/alex1.png",
-    },
-    {
-      id: 2,
-      name: "Michael Smith",
-      address: "789 Maple Drive, NY",
-      services: "Mobile & In-Studio",
-      img: "https://i.ibb.co/CmdDP8J/michel2.png",
-    },
-    {
-      id: 3,
-      name: "David Martinez",
-      address: "Pine Street, San Francisco",
-      services: "Mobile & In-Studio",
-      img: "https://i.ibb.co/j6wvZvN/david3.png",
-    },
-    {
-      id: 4,
-      name: "Jennifer Lee",
-      address: "Cedar Lane, Miami",
-      services: "Mobile & In-Studio",
-      img: "https://i.ibb.co/9Tj6PLk/jeni4.png",
-    },
-    {
-        id: 5,
-        name: "Jennifer Lee",
-        address: "Cedar Lane, Miami",
-        services: "Mobile & In-Studio",
-        img: "https://i.ibb.co/CmdDP8J/michel2.png",
-      },
-      {
-        id: 6,
-        name: "Jennifer Lee",
-        address: "Cedar Lane, Miami",
-        services: "Mobile & In-Studio",
-        img: "https://i.ibb.co/dLpS4s4/alex1.png",
-      },
-      {
-        id: 7,
-        name: "Jennifer Lee",
-        address: "Cedar Lane, Miami",
-        services: "Mobile & In-Studio",
-        img: "https://i.ibb.co/j6wvZvN/david3.png",
-      },
-  ];
-
 const TherapistCard = ({ therapist }) => (
   <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 flex-shrink-0 p-4">
     <div className="bg-white shadow-md rounded-lg">
@@ -77,7 +25,7 @@ const TherapistCard = ({ therapist }) => (
   </div>
 );
 
-const TherapistCarousel = () => {
+const Newcard = ({allcard}) => {
   const carouselRef = useRef(null);
 
   const handlePrevClick = () => {
@@ -101,7 +49,7 @@ const TherapistCarousel = () => {
   return (
     <div className="relative">
       <div ref={carouselRef} className="flex overflow-x-auto hide-scroll-bar p-4 space-x-4">
-        {therapists.map((therapist, index) => (
+        {allcard.map((therapist, index) => (
           <TherapistCard key={index} therapist={therapist} />
         ))}
       </div>
@@ -120,4 +68,4 @@ const TherapistCarousel = () => {
   );
 };
 
-export default TherapistCarousel;
+export default Newcard;

@@ -14,6 +14,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Homepage/>,
+    loader:()=>fetch('./dynamicdata.json')
   },
   {
     path: "/login",

@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useState } from 'react';
-import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import { getAuth, signInWithPopup, signInWithEmailAndPassword, GoogleAuthProvider } from 'firebase/auth';
 import { FaFacebookF } from 'react-icons/fa6';
 import { FcGoogle } from 'react-icons/fc';
 import app from '../firebase/firebase.config';
@@ -9,10 +9,37 @@ import { useNavigate } from 'react-router-dom';
 
 const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
   const auth = getAuth(app);
   const googleProvider = new GoogleAuthProvider();
+
+  const handleEmailLogin = (e) => {
+    e.preventDefault();
+    signInWithEmailAndPassword(auth, email, password)
+      .then((res) => {
+        const user = res.user;
+        console.log(user);
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Login Successfully",
+          showConfirmButton: false,
+          timer: 1500
+        });
+        navigate('/');
+      })
+      .catch((err) => {
+        console.log(err.message);
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Invalid email or password!',
+        });
+      });
+  };
 
   const handleGoogleSignin = () => {
     signInWithPopup(auth, googleProvider)
@@ -30,6 +57,11 @@ const LoginPage = () => {
       })
       .catch((err) => {
         console.log(err.message);
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Google Sign-in failed!',
+        });
       });
   };
 
@@ -53,7 +85,7 @@ const LoginPage = () => {
             </button>
           </div>
           <div className="text-center mb-6">Or Continue with Email</div>
-          <form>
+          <form onSubmit={handleEmailLogin}>
             <div className="mb-4">
               <label className="block text-gray-700 mb-2" htmlFor="email">
                 Email
@@ -62,6 +94,8 @@ const LoginPage = () => {
                 className="w-full p-2 border border-gray-300 rounded"
                 type="email"
                 id="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email"
               />
             </div>
@@ -73,6 +107,8 @@ const LoginPage = () => {
                 className="w-full p-2 border border-gray-300 rounded"
                 type={showPassword ? "text" : "password"}
                 id="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 placeholder="Enter your password"
               />
               <div

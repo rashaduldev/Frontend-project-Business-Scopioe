@@ -1,11 +1,14 @@
-import TherapistCarousel from "./Card/NewCard";
+import { useLoaderData } from "react-router-dom";
 import CitiesList from "./CitiesList";
 import Header from "./Header";
 import SearchBar from "./SearchBar";
 import TestimonialList from "./TestimonialList";
+import Newcard from "./Card/NewCard";
 
 
 const Mainpart = () => {
+    const allCard = useLoaderData();
+    console.log(allCard);
     return (
         <div>
         <Header/>
@@ -14,7 +17,7 @@ const Mainpart = () => {
             <div className="my-8">
             <h2 className="text-2xl font-semibold mb-4">Featured Therapist</h2>
             <div className="bg-white pl-14 pr-20 rounded-lg">
-                <TherapistCarousel/>
+                <Newcard allcard={allCard}/>
             </div>
             </div>
             <div className="my-8 grid grid-cols-1 md:grid-cols-2 gap-4">
