@@ -15,13 +15,13 @@ import Errorpage from './Pages/Errorpage';
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Homepage/>,
-    loader:()=>data,
+    element: <LoginPage/>,
     errorElement: <Errorpage/>,
   },
   {
-    path: "/login",
-    element: <LoginPage/>,
+    path: "/dashboard",
+    element: <Homepage/>,
+    loader:()=>data,
   },
   {
     path: "/signup",

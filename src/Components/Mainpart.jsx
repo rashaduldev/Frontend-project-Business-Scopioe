@@ -34,7 +34,7 @@ const Mainpart = () => {
         <SearchBar onSearch={handleSearch} />
         <div className="my-8">
           <h2 className="text-2xl font-semibold ml-2 lg:ml-0 mb-4">Featured Therapist</h2>
-          <div className="bg-white pl-14 pr-20 rounded-lg">
+          <div className="bg-white lg:pl-14 lg:pr-20 rounded-lg">
             <Newcard allcard={filteredCards} />
           </div>
         </div>

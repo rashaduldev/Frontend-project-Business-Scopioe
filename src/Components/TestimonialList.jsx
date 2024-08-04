@@ -54,12 +54,12 @@ function ReadMore({ text, maxWords = 25 }) {
 
 function TestimonialList() {
   return (
-    <div className="bg-white shadow-md p-4 rounded-lg">
-      <ul className="space-y-4">
+    <div className="bg-white shadow-md p-4 rounded-lg relative">
+      <ul className="space-y-4 pb-10">
         {testimonials.map((testimonial) => (
           <li key={testimonial.id} className="border p-4 rounded">
-            <div className="flex flex-col lg:flex-row text-left items-center space-x-7">
-              <div className="h-[141px] w-full lg:w-auto lg:flex-shrink-0 lg:overflow-hidden">
+            <div className="flex flex-row text-left items-center space-x-7">
+              <div className="h-[142px] w-[650px] lg:w-auto lg:flex-shrink-0 lg:overflow-hidden">
                 <img 
                   src={testimonial.img} 
                   alt="" 
@@ -80,6 +80,11 @@ function TestimonialList() {
           </li>
         ))}
       </ul>
+      <div className='flex justify-center gap-1 absolute left-[50%] bottom-4 translate-x-[-50%]'>
+        <p className='text-8xl  text-blue-600 '>.</p>
+        <p className='text-8xl  text-gray-400'>.</p>
+        <p className='text-8xl  text-gray-400'>.</p>
+      </div>
     </div>
   );
 }

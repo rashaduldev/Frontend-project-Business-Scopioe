@@ -34,7 +34,7 @@ const LoginPage = () => {
         text: "You have successfully created an account.",
       });
 
-      navigate("/");
+      navigate("/dashboard");
     } catch (error) {
       Swal.fire({
         icon: "error",
@@ -47,16 +47,16 @@ const LoginPage = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 lg:p-0">
       {/* Mobile Design */}
-      <div className="block lg:hidden w-full bg-white shadow-md overflow-hidden">
-        <div className="relative">
-          <img className="w-full" src="https://i.ibb.co/G5n1735/iPhone-1.png" alt="background" />
-          <div className='absolute top-20 text-center left-[35%] md:left-[40%]'>
+      <div className="block lg:hidden w-full bg-white shadow-md overflow-auto h-[100vh]">
+        <div className="relative flex flex-col">
+          <img className="w-full h-screen" src="https://i.ibb.co/G5n1735/iPhone-1.png" alt="background" />
+          <div className='absolute top-10 text-center left-[50%] translate-x-[-50%]'>
             <h1 className="text-5xl text-blue-600 mb-6 ">LOGO</h1>
             <p className='text-white'>Create account<br /> Fill in Your Information</p>
           </div>
-          <div className="absolute inset-0 flex flex-col items-center justify-center bg-white top-[30%] md:top-[20%] rounded-t-3xl w-full"> 
+          <div className="absolute h-auto flex flex-col items-center justify-center bg-white top-[50%] md:top-[50%] rounded-t-3xl w-full"> 
             
-            <h2 className="text-2xl font-bold mb-4 text-black text-center">Sign In</h2>
+            <h2 className="text-2xl font-bold mb-4 pt-5 text-black text-center">Sign In</h2>
             <form className="w-full px-4" onSubmit={handleSubmit(onSubmit)}>
             <div className="mb-4">
               <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">Name</label>
@@ -138,7 +138,7 @@ const LoginPage = () => {
           </form>
           <p className="mt-4 text-md">
             Already Have an Account?{" "}
-            <a href="/login" className="text-blue-500">Log in</a>
+            <a href="/" className="text-blue-500">Log in</a>
           </p>
           </div>
         </div>
@@ -241,7 +241,7 @@ const LoginPage = () => {
           </form>
           <p className="mt-4 text-md">
             Already Have an Account?{" "}
-            <a href="/login" className="text-blue-500">Log in</a>
+            <a href="/" className="text-blue-500">Log in</a>
           </p>
         </div>
       </div>

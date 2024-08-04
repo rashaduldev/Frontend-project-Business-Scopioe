@@ -5,9 +5,9 @@ import { Link } from 'react-router-dom';
 import { GoChevronLeft, GoChevronRight } from 'react-icons/go';
 
 const TherapistCard = ({ therapist }) => (
-  <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 flex-shrink-0 p-4">
+  <div className="w-60 md:w-1/3 lg:w-1/4 flex-shrink-0 p-4">
     <div className="bg-white shadow-md rounded-lg">
-      <img src={therapist?.img} alt={therapist?.name} className="w-full h-32 object-cover rounded-t-lg" />
+      <img src={therapist?.img} alt={therapist?.name} className="w-60 h-52 lg:w-full lg:h-full rounded-t-lg p-2" />
       <div className="">
         <div className='p-3'>
         <h3 className="text-lg font-bold">{therapist?.name}</h3>
@@ -48,7 +48,7 @@ const Newcard = ({allcard}) => {
 
   return (
     <div className="relative">
-      <div ref={carouselRef} className="flex overflow-x-auto hide-scroll-bar p-4 space-x-4">
+      <div ref={carouselRef} className="flex overflow-x-auto hide-scroll-bar lg:p-4 lg:space-x-4">
         {allcard.map((therapist, index) => (
           <TherapistCard key={index} therapist={therapist} />
         ))}

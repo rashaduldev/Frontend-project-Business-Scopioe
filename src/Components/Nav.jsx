@@ -13,7 +13,7 @@ const Nav = () => {
     return (
         <nav className=" space-y-1">
         <Link
-          to="/"
+          to="/dashboard"
           className="flex items-center space-x-4 text-gray-700 hover:text-black hover:bg-[#D4E9FF] p-4 font-medium hover-border-left ml-1 hover:ml-0"
         >
           <FiGrid />

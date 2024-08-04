@@ -30,7 +30,7 @@ const LoginPage = () => {
           showConfirmButton: false,
           timer: 1500
         });
-        navigate('/');
+        navigate('/dashboard');
       })
       .catch((err) => {
         Swal.fire({
@@ -52,7 +52,7 @@ const LoginPage = () => {
           showConfirmButton: false,
           timer: 1500
         });
-        navigate('/');
+        navigate('/dashboard');
       })
       .catch((err) => {
         Swal.fire({
@@ -74,7 +74,7 @@ const LoginPage = () => {
           showConfirmButton: false,
           timer: 1500
         });
-        navigate('/');
+        navigate('/dashboard');
       })
       .catch((err) => {
         Swal.fire({
@@ -88,23 +88,23 @@ const LoginPage = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       {/* Mobile Design */}
-      <div className="block lg:hidden w-full bg-white overflow-hidden">
+      <div className="block lg:hidden w-full bg-white overflow-auto">
         <div className="relative">
-          <img className="w-full" src="https://i.ibb.co/G5n1735/iPhone-1.png" alt="background" />
-          <div className='absolute top-20 text-center left-[33%] md:left-[44%]'>
+          <img className="w-full h-screen" src="https://i.ibb.co/G5n1735/iPhone-1.png" alt="background" />
+          <div className='absolute top-20 text-center left-[50%] translate-x-[-50%]'>
             <h1 className="text-5xl text-blue-600 mb-6 ">LOGO</h1>
             <p className='text-white'>Sign in to view all the <br /> message therapists</p>
           </div>
-          <div className="absolute inset-0 flex flex-col items-center justify-center bg-white top-[30%] md:top-[20%] rounded-t-3xl px-4"> 
+          <div className="absolute w-full flex flex-col items-center justify-center bg-white top-[50%] md:top-[50%] rounded-t-3xl px-4"> 
             
-            <h2 className="text-2xl font-bold mb-4 text-black text-center">Log In To Your Account</h2>
+            <h2 className="text-2xl font-bold mb-4 pt-5 text-black text-center">Log In To Your Account</h2>
             <p className="text-black mb-6 text-sm text-center">Welcome Back! Select a method to log in:</p>
-            <div className="flex justify-center mb-6">
-              <button onClick={handleGoogleSignin} className="text-black hover:text-white hover:bg-blue-600 text-xl py-2 px-4 rounded mx-2 flex items-center gap-3 border shadow-xl bg-white">
-                <FcGoogle />
-                Google
-              </button>
-              <button onClick={handleFacebookSignin} className="text-white bg-blue-600 text-xl py-2 px-4 rounded mx-2 flex items-center gap-3 border shadow-xl">
+            <div className="flex flex-col md:flex-row justify-center mb-6">
+            <button onClick={handleGoogleSignin} className="text-black mt-5 hover:bg-blue-600 hover:text-white text-xl py-2 px-4 rounded mx-2 flex items-center gap-3 border shadow-xl">
+              <FcGoogle />
+              Google
+            </button>
+              <button onClick={handleFacebookSignin} className="text-white mt-5 bg-blue-600 text-xl py-2 px-4 rounded mx-2 flex items-center gap-3 border shadow-xl">
                 <FaFacebookF />
                 Facebook
               </button>

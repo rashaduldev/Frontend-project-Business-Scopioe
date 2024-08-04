@@ -31,12 +31,12 @@ const TherapistDetail = () => {
       </div>
      </div>
         <div className='flex items-center text-red-600 gap-4 text-2xl mt-10'>
-        <Link to={'/'}>
+        <Link to={'/dashboard'}>
         <div className=' cursor-pointer bg-red-300 p-2 rounded-full'>
             <FaArrowLeft />
         </div>
         </Link>
-        <p>Back to homepage</p>
+        <p>Go to Dashboard</p>
         </div>
     </div>
   );

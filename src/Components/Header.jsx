@@ -101,7 +101,7 @@ const Header = () => {
                         <div>
                         <div className="flex items-center space-x-2 text-red-600 border-left pl-5">
                       <p className="text-xl">Log out</p>
-                      <Link to={'/login'}>
+                      <Link to={'/'}>
                        <div  onClick={handleLogout} className="border p-2 rounded-full bg-red-100 cursor-pointer">
                         <FaArrowRightToBracket />   
                        </div>
@@ -112,7 +112,7 @@ const Header = () => {
                         <div>
                             <div className="flex items-center space-x-2 text-blue-700 border-left pl-5">
                             <p className="text-xl">Log in</p>
-                            <Link to={'/login'}>
+                            <Link to={'/'}>
                             <div className="border p-2 rounded-full bg-blue-100 cursor-pointer">
                             <FaArrowRightToBracket />
                           </div>
