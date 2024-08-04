@@ -35,7 +35,7 @@ This project is a web application based on a provided Figma design. The applicat
 1. Navigate to the login page.
 2. Log in using your Firebase credentials.
 3. Upon successful login, you will be redirected to the main content page.
-4. Use the search functionality to filter dynamic data.
+4. Use the search functionality to filter dynamic data <b>filter by zip code or city name</b>.
 
 ## Features
 - **Figma to React.js Conversion**: The application is converted from a Figma design to a fully functional React.js application.

@@ -44,7 +44,7 @@ const Header = () => {
     return (
        <div>
              <div className="hidden lg:flex">
-             <div className="flex items-center justify-between p-4 w-full bg-white shadow-md mb-6">
+             <div className="flex items-center justify-between p-4 w-full bg-white shadow-md mb-6 px-9">
                 <div className="flex items-center space-x-4">
                     
                     <div>

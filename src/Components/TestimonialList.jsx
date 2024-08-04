@@ -47,11 +47,6 @@ function ReadMore({ text, maxWords = 25 }) {
             )}
           </>
         )}
-        {isExpanded && shouldShowReadMore && (
-          <button onClick={toggleReadMore} className="text-blue-500 underline inline">
-            Read less
-          </button>
-        )}
       </p>
     </div>
   );
