@@ -16,7 +16,6 @@ const Header = () => {
 
         useEffect(()=>{
             const unSubscribe= onAuthStateChanged(auth,currentUser=>{
-                 console.log(currentUser);
                  setUser(currentUser);
              })
              return (()=>{

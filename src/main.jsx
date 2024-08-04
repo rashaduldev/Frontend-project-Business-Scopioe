@@ -8,13 +8,14 @@ import {
 import Homepage from './Pages/Homepage';
 import LoginPage from './Pages/LoginPage';
 import SignupPage from './Pages/SignupPage';
-
+import TherapistDetail from './Components/Card/TherapistDetail';
+import data from '../public/dynamicdata.json';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Homepage/>,
-    loader:()=>fetch('./dynamicdata.json')
+    loader:()=>data,
   },
   {
     path: "/login",
@@ -23,6 +24,11 @@ const router = createBrowserRouter([
   {
     path: "/signup",
     element: <SignupPage/>,
+  },
+  {
+    path: "/therapist/:therapistId",
+    element: <TherapistDetail />,
+    loader:()=>data,
   },
 ]);
 
