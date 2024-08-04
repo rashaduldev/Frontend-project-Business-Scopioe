@@ -1,6 +1,7 @@
+/* eslint-disable no-unused-vars */
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { getAuth, signInWithPopup, signInWithEmailAndPassword, GoogleAuthProvider } from 'firebase/auth';
+import { getAuth, signInWithPopup, signInWithEmailAndPassword, GoogleAuthProvider, FacebookAuthProvider } from 'firebase/auth';
 import { FaFacebookF } from 'react-icons/fa';
 import { FcGoogle } from 'react-icons/fc';
 import app from '../firebase/firebase.config';
@@ -14,6 +15,8 @@ const LoginPage = () => {
 
   const auth = getAuth(app);
   const googleProvider = new GoogleAuthProvider();
+  const facebookProvider = new FacebookAuthProvider();
+
   const handleEmailLogin = (data) => {
     const { email, password } = data;
     signInWithEmailAndPassword(auth, email, password)
@@ -59,6 +62,28 @@ const LoginPage = () => {
       });
   };
 
+  const handleFacebookSignin = () => {
+    signInWithPopup(auth, facebookProvider)
+      .then((res) => {
+        const user = res.user;
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Login Successfully",
+          showConfirmButton: false,
+          timer: 1500
+        });
+        navigate('/');
+      })
+      .catch((err) => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Facebook Sign-in failed!',
+        });
+      });
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4 lg:p-0">
       {/* Mobile Design */}
@@ -78,7 +103,7 @@ const LoginPage = () => {
                 <FcGoogle />
                 Google
               </button>
-              <button className="text-white bg-blue-600 text-xl py-2 px-4 rounded mx-2 flex items-center gap-3 border shadow-xl">
+              <button onClick={handleFacebookSignin} className="text-white bg-blue-600 text-xl py-2 px-4 rounded mx-2 flex items-center gap-3 border shadow-xl">
                 <FaFacebookF />
                 Facebook
               </button>
@@ -122,7 +147,7 @@ const LoginPage = () => {
                     type="checkbox"
                     id="rememberMe"
                     className="mr-2 leading-tight"
-                    {...register('rememberMe', { required: 'Remember me is required' })}
+                    {...register('rememberMe', { required: 'Please check Remember me' })}
                   />
                   <label htmlFor="rememberMe" className="text-black">Remember me</label>
                 </div>
@@ -142,10 +167,10 @@ const LoginPage = () => {
         </div>
       </div>
       {/* Desktop Design */}
-      <div className="hidden lg:flex flex-row-reverse bg-white shadow-md rounded-lg overflow-hidden w-full lg:max-w-4xl">
+      <div className="hidden lg:flex flex-row-reverse overflow-hidden w-full lg:max-w-6xl gap-10">
         <div className="lg:w-1/2 relative">
-          <img src="https://i.ibb.co/y8XFwSs/Rectangle-9593.png" alt="Background" className="absolute inset-0 w-full h-full object-cover" />
-          <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
+          <img src="https://i.ibb.co/y8XFwSs/Rectangle-9593.png" alt="Background" className="absolute inset-0 w-full h-full object-cover rounded-lg" />
+          <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 rounded-lg">
             <h2 className="text-white text-2xl font-bold text-center bg-[#4950349f] p-10 rounded-lg">
               <a className="text-blue-600" href="#">Sign In</a> to view all the <br /> massage therapists
             </h2>
@@ -158,11 +183,11 @@ const LoginPage = () => {
           <h2 className="text-3xl font-bold mb-6 text-left">Log In To Your Account</h2>
           <p className="text-left mb-6">Welcome Back! Select a method to log in:</p>
           <div className="flex justify-center mb-6">
-            <button onClick={handleGoogleSignin} className="text-black hover:text-white hover:bg-blue-600 text-xl py-2 px-4 rounded mx-2 flex items-center gap-3 border shadow-xl">
+            <button onClick={handleGoogleSignin} className="text-black hover:text-white hover:bg-blue-600 text-xl py-3 px-8 rounded mx-2 flex items-center gap-3 border">
               <FcGoogle />
               Google
             </button>
-            <button className="text-white bg-blue-600 text-xl py-2 px-4 rounded mx-2 flex items-center gap-3 border shadow-xl">
+            <button onClick={handleFacebookSignin} className="text-white bg-blue-600 text-xl py-3 px-8 rounded mx-2 flex items-center gap-3 border">
               <FaFacebookF />
               Facebook
             </button>
@@ -206,7 +231,7 @@ const LoginPage = () => {
                   type="checkbox"
                   id="rememberMe"
                   className="mr-2 leading-tight"
-                  {...register('rememberMe', { required: 'Remember me is required' })}
+                  {...register('rememberMe', { required: 'Please check Remember me' })}
                 />
                 <label htmlFor="rememberMe" className="text-gray-700">Remember me</label>
               </div>
