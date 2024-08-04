@@ -10,12 +10,14 @@ import LoginPage from './Pages/LoginPage';
 import SignupPage from './Pages/SignupPage';
 import TherapistDetail from './Components/Card/TherapistDetail';
 import data from '../public/dynamicdata.json';
+import Errorpage from './Pages/Errorpage';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Homepage/>,
     loader:()=>data,
+    errorElement: <Errorpage/>,
   },
   {
     path: "/login",

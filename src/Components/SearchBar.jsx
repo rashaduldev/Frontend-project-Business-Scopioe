@@ -36,7 +36,7 @@ const SearchBar = ({ onSearch }) => {
             onChange={handleInputChange}
             className="w-full p-2 border rounded "
           />
-          <button onClick={handleSearch} className="px-7 py-2 bg-blue-500 text-white rounded absolute top-[1.5px] right-[1px]">
+          <button onClick={handleSearch} className="px-7 py-2 bg-blue-500 text-white rounded absolute top-[1px] lg:top-[1.5px] right-[1px]">
             Go
           </button>
         </div>

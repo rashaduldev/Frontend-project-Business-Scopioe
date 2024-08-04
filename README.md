@@ -43,6 +43,7 @@ This project is a web application based on a provided Figma design. The applicat
 - **React Router Setup**: Navigation is managed using react-router-dom, with route protection for authenticated routes.
 - **Dynamic Data Display**: A component fetches and displays dynamic data with search functionality.
 - **Styling with Tailwind CSS**: The application components are styled using Tailwind CSS, ensuring responsiveness and consistency with the Figma design.
+- **Error page implement**
 
 ## Demo
 You can view the live demo of the application [Live link here](https://rashadul-business-scopioe.vercel.app).

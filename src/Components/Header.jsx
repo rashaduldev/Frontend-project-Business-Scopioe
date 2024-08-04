@@ -166,6 +166,18 @@ const Header = () => {
                         }
                         </div>
                         <Nav />
+                        {
+                          user?.email &&  <div>
+                          <div className="flex items-center justify-center my-2 space-x-2 text-red-600 border-left pl-5">
+                        <p className="text-xl">Log out</p>
+                        <Link to={'/login'}>
+                         <div  onClick={handleLogout} className="border p-2 rounded-full bg-red-100 cursor-pointer">
+                          <FaArrowRightToBracket />   
+                         </div>
+                         </Link>
+                        </div>
+                          </div>
+                        }
                     </div>
                     )}
                 </div>
