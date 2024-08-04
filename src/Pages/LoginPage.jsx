@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -85,12 +86,12 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4 lg:p-0">
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
       {/* Mobile Design */}
-      <div className="block lg:hidden w-full bg-white shadow-md rounded-lg overflow-hidden">
+      <div className="block lg:hidden w-full bg-white overflow-hidden">
         <div className="relative">
           <img className="w-full" src="https://i.ibb.co/G5n1735/iPhone-1.png" alt="background" />
-          <div className='absolute top-20 text-center left-[35%] md:left-[40%]'>
+          <div className='absolute top-20 text-center left-[33%] md:left-[44%]'>
             <h1 className="text-5xl text-blue-600 mb-6 ">LOGO</h1>
             <p className='text-white'>Sign in to view all the <br /> message therapists</p>
           </div>

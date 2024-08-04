@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { createUserWithEmailAndPassword, getAuth, updateProfile } from "firebase/auth";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -44,19 +45,19 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4 lg:p-0">
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 lg:p-0">
       {/* Mobile Design */}
-      <div className="block lg:hidden w-full bg-white shadow-md rounded-lg overflow-hidden">
+      <div className="block lg:hidden w-full bg-white shadow-md overflow-hidden">
         <div className="relative">
           <img className="w-full" src="https://i.ibb.co/G5n1735/iPhone-1.png" alt="background" />
           <div className='absolute top-20 text-center left-[35%] md:left-[40%]'>
             <h1 className="text-5xl text-blue-600 mb-6 ">LOGO</h1>
             <p className='text-white'>Create account<br /> Fill in Your Information</p>
           </div>
-          <div className="absolute inset-0 flex flex-col items-center justify-center bg-white top-[30%] md:top-[20%] rounded-t-3xl px-4"> 
+          <div className="absolute inset-0 flex flex-col items-center justify-center bg-white top-[30%] md:top-[20%] rounded-t-3xl w-full"> 
             
             <h2 className="text-2xl font-bold mb-4 text-black text-center">Sign In</h2>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form className="w-full px-4" onSubmit={handleSubmit(onSubmit)}>
             <div className="mb-4">
               <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">Name</label>
               <input
@@ -135,9 +136,10 @@ const LoginPage = () => {
             </div>
             <button className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500">Sign up</button>
           </form>
-            <div className="text-center mt-4 text-black">
-              Don't Have an Account? <a href="/signup" className="text-blue-500 hover:underline">Create Account</a>
-            </div>
+          <p className="mt-4 text-md">
+            Already Have an Account?{" "}
+            <a href="/login" className="text-blue-500">Log in</a>
+          </p>
           </div>
         </div>
       </div>
